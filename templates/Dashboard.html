@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Univen Housing Portal</title>
+    <link rel="icon" type="image/png" href="/Assets/univen_logo.png">
+    <link rel="shortcut icon" type="image/png" href="/Assets/univen_logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/Dashboard.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav_bar_container">
+        <div class="left_nav_menu">
+            <a href="#"><img src="../Assets/univen_logo.png" alt="Univen Logo"></a>
+            <div class="logo_header">
+                <h1 class="primary_header">Univen Housing Portal</h1>
+                <h6 class="secondary_header">Welcome, <span id="user-name">{{ student.first_name }} {{ student.last_name }}</span></h6>
+            </div>
+        </div>
+        <button class="logout_btn nav_bar_login_btn" onclick="window.location.href='/logout'">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </button>
+
+        <div class="hamburger-container">
+            <button class="hamburger" data-menu-open="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar Navigation (Horizontal on desktop, Dropdown on mobile) -->
+    <div class="nav-menu-container">
+        <ul class="admin_section_navigations">
+            <li class="navigators active" data-section="dashboard">Dashboard</li>
+            <li class="navigators" data-section="application">My Application</li>
+            <li class="navigators" data-section="profile">Profile</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="section_wrapper">
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="content-section active">
+            <div class="navigate_to_application_container">
+                <h2 class="admin_section_header">Housing Application 2026</h2>
+                <form id="applicationForm" action="/api/apply" method="POST">
+                    <label for="appType">Select Application Type:</label>
+                    <select id="appType" name="appType" required>
+                        <option value="">--Choose--</option>
+                        <option value="on">On-Campus</option>
+                        <option value="off">Off-Campus</option>
+                    </select>
+
+                    <div id="genderField" class="hidden">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender">
+                            <option value="">--Choose--</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="adminbtn">Continue <i class="bi bi-arrow-right"></i></button>
+                </form>
+                <p class="application_deadline">Application deadline: January 31, 2026</p>
+            </div>
+        </div>
+
+        <!-- Application Status Section -->
+        <div id="application" class="content-section">
+            <div class="my_application_view">
+                <div class="top_header_and_par">
+                    <h2 class="header">My Housing Application</h2>
+                    <p class="subheader">Current application status and details</p>
+                </div>
+                <div id="application-content">
+                    {% if applications %}
+                    <table class="application-table">
+                        <thead>
+                            <tr>
+                                <th>Residence</th>
+                                <th>Status</th>
+                                <th>Applied Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for app in applications %}
+                            <tr>
+                                <td>{{ app.residence_name }}</td>
+                                <td><span class="status-{{ app.status|lower }}">{{ app.status }}</span></td>
+                                <td>{{ app.applied_date }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <div class="middle_information">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <h3 class="application_sub">No Application Submitted</h3>
+                        <p>You haven't submitted a housing application yet.</p>
+                        <button class="adminbtn" onclick="showDashboard()">Start Housing Application <i class="bi bi-arrow-right"></i></button>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Section -->
+        <div id="profile" class="content-section">
+            <div class="my_application_view">
+                <div class="top_header_and_par">
+                    <h2 class="header">Student Profile</h2>
+                    <p class="subheader">Your academic and personal information</p>
+                </div>
+                <ul class="profile_information">
+                    <li class="infor">
+                        <p class="subheader">Student Number</p>
+                        <h2 class="header">{{ student.student_number }}</h2>
+                    </li>
+                    <li class="infor">
+                        <p class="subheader">Gender</p>
+                        <h2 class="header">{{ student.gender|capitalize }}</h2>
+                    </li>
+                    <li class="infor">
+                        <p class="subheader">Academic Year</p>
+                        <h2 class="header">{{ student.year_of_study }}</h2>
+                    </li>
+                    <li class="infor">
+                        <p class="subheader">Program</p>
+                        <h2 class="header">{{ student.program }}</h2>
+                    </li>
+                    <li class="infor">
+                        <p class="subheader">GPA</p>
+                        <h2 class="header">{{ student.gpa }}</h2>
+                    </li>
+                    <li class="infor">
+                        <p class="subheader">Distance from Campus</p>
+                        <h2 class="header">{{ student.distance }} km</h2>
+                    </li>
+                    <li class="infor">
+                        <p class="subheader">Priority Status</p>
+                        <h2 class="header">
+                            {% if student.distance > 15 %}
+                            <span class="prioritystatus">High Priority (Distance)</span>
+                            {% else %}
+                            <span class="prioritystatus">Standard Priority</span>
+                            {% endif %}
+                        </h2>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/Dashboard.js"></script>
+</body>
+</html>

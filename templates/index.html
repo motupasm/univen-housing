@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Univen Housing Portal</title>
+  <meta name="description" content="Univen Housing Portal - Transparent and fair housing allocation for University of Venda students.">
+  <link rel="icon" type="image/png" href="/Assets/univen_logo.png">
+  <link rel="shortcut icon" type="image/png" href="/Assets/univen_logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .learn {
+      transition: all 0.3s ease;
+    }
+    
+    .learn:hover {
+      color: #043efceb;
+      text-decoration: underline;
+    }
+    
+    button {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .access {
+      transition: all 0.3s ease;
+    }
+    
+    .access:hover {
+      transform: translateY(-2px);
+    }
+    
+    .housing-types, .faq {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .housing-types h2, .faq h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    
+    .housing-types p, .faq p {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      margin-bottom: 40px;
+    }
+    
+    .faq-items {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    
+    .faq-item {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border-left: 4px solid #043efceb;
+    }
+    
+    .faq-item h3 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .faq-item p {
+      color: #7f8c8d;
+      line-height: 1.6;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="Assets/univen_logo.png" alt="Univen Logo">
+      <div>
+        <h1>Univen Housing Portal</h1>
+        <p>University of Venda</p>
+      </div>
+    </div>
+<a href="/login">
+  <button class="login">Login →</button>
+</a>
+  </header>
+
+  <main>
+    <section class="fair-allocation">
+      <div class="text">
+        <h2><span class="black">Fair Housing Allocation for</span> <span class="blue">Every Student</span></h2>
+        <p>A transparent, secure, and accessible housing system designed to eliminate chaos, prevent double bookings, and ensure safe accommodation for all Univen students.</p>
+        <a href="/login" class="access">Access Housing Portal →</a>
+        <a href="https://www.univen.ac.za/students/housing-and-accommodation/" target="_blank" class="learn">Learn More</a>
+      </div>
+      <img src="Assets/health_science_building.png" alt="University Building">
+    </section>
+
+    <section class="stats">
+      <div>
+        <h3>20,000+</h3>
+        <p>Total Students</p>
+      </div>
+      <div>
+        <h3>15,000+</h3>
+        <p>Available Beds</p>
+      </div>
+      <div>
+        <h3>95%</h3>
+        <p>Success Rate</p>
+      </div>
+      <div>
+        <h3>24hrs</h3>
+        <p>Average Response Time</p>
+      </div>
+      <div class="online">System Online</div>
+    </section>
+
+    <section class="housing-crisis">
+      <h2>The Housing Crisis We're Solving</h2>
+      <p>With 20,000+ students competing for only 5,000+ beds on-camp, the old system was failing students.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i></span>
+          <h3>Chaotic Selection</h3>
+          <p>Shady processes, favoritism, and unfair allocation methods.</p>
+        </div>
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i></span>
+          <h3>System Crashes</h3>
+          <p>Website failures during peak application periods.</p>
+        </div>
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-triangle-exclamation" style="color: #ff0000;"></i></span>
+          <h3>Double Bookings</h3>
+          <p>Students paying twice for accommodation they don't get.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="making-better">
+      <h2>How We're Making It Better</h2>
+      <p>Modern solutions for a modern university.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-shield" style="color: #043efceb;"></i></span>
+          <h3>Fair & Transparent</h3>
+          <p>No favoritism - algorithmic allocation based on distance, academics, or random draw.</p>
+        </div>
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-clock" style="color: #043efceb;"></i></span>
+          <h3>Real-time Status</h3>
+          <p>Track your application status and waitlist position in real-time.</p>
+        </div>
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-people-group" style="color: #043efceb;"></i></span>
+          <h3>Priority System</h3>
+          <p>Female students and those from distant provinces get priority for safety.</p>
+        </div>
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-circle-check" style="color: #043efceb;"></i></span>
+          <h3>No Double Booking</h3>
+          <p>Advanced system prevents double bookings and payment confusion.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="special-protection">
+      <div class="text">
+        <span class="badge">Safety First</span>
+        <h2>Special Protection for Vulnerable Students</h2>
+        <p>We prioritize the safety of female students and those from distant provinces.</p>
+        <ul>
+          <li><i class="fa-solid fa-circle-check" style="color: #0b8b64;"></i> Priority allocation for female students</li>
+          <li><i class="fa-solid fa-circle-check" style="color: #0b8b64;"></i> Distance-based priority system</li>
+          <li><i class="fa-solid fa-circle-check" style="color: #0b8b64;"></i> Specialized nursing student blocks</li>
+          <li><i class="fa-solid fa-circle-check" style="color: #0b8b64;"></i> 24/7 support for emergencies</li>
+        </ul>
+      </div>
+      <img src="Assets/female_dbsa_res.png" alt="Student Housing">
+    </section>
+
+    <section id="housing-types" class="housing-types">
+      <h2>Available Housing Options</h2>
+      <p>Choose from a variety of on-campus and off-campus accommodation options.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-building" style="color: #043efceb;"></i></span>
+          <h3>On-Campus Residences</h3>
+          <p>Secure, convenient housing within the university campus with 24/7 security and easy access to facilities.</p>
+        </div>
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-home" style="color: #043efceb;"></i></span>
+          <h3>Off-Campus Housing</h3>
+          <p>Partnered off-campus accommodations with verified safety standards and transportation access.</p>
+        </div>
+        <div class="card">
+          <span class="icon"><i class="fa-solid fa-users" style="color: #043efceb;"></i></span>
+          <h3>Gender-Specific Blocks</h3>
+          <p>Separate male and female blocks ensuring comfort and safety for all students.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="faq" class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-items">
+        <div class="faq-item">
+          <h3>How do I apply for housing?</h3>
+          <p>Simply log in with your student credentials and follow the step-by-step application process. You can apply for up to 2 on-campus and unlimited off-campus residences.</p>
+        </div>
+        <div class="faq-item">
+          <h3>When will I know if I got housing?</h3>
+          <p>You'll receive real-time updates on your application status. Most decisions are made within 24-48 hours of application.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What if I don't get my first choice?</h3>
+          <p>Our system automatically considers your preferences and places you on waitlists. You'll be notified immediately when your preferred option becomes available.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>Ready to Find Your Home Away From Home?</h2>
+      <p>Join thousands of students who have found safe, fair, and transparent housing through our system.</p>
+      <button onclick="window.location.href='/login'">Get Started Now →</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Connect With Us</h3>
+        <p>Follow our social media channels to stay updated with the latest housing news and updates.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/login">Housing Application</a></li>
+          <li><a href="/login">Check Status</a></li>
+          <li><a href="#housing-types">Room Types</a></li>
+          <li><a href="#housing-types">Housing Options</a></li>
+          <li><a href="#faq">FAQs</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i> University of Venda, Thohoyandou</li>
+          <li><i class="fas fa-phone"></i> +27 15 962 8000</li>
+          <li><i class="fas fa-envelope"></i> housing@univen.ac.za</li>
+          <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 University of Venda. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

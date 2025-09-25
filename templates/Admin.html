@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Univen Admin Dashboard</title>
+  <link rel="icon" type="image/png" href="/Assets/univen_logo.png">
+  <link rel="shortcut icon" type="image/png" href="/Assets/univen_logo.png">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="../css/Admin.css">
+</head>
+<body class="min-h-screen">
+  <!-- Sidebar -->
+  <div class="fixed left-0 top-0 h-full w-64 sidebar text-white z-50">
+    <div class="p-5 text-center sidebar-header">
+      <img src="../Assets/univen_logo.png" alt="Univen Logo" class="w-16 h-16 mx-auto mb-3 rounded-lg shadow-lg">
+      <h1 class="text-xl font-semibold">Univen Admin Panel</h1>
+      <p class="text-sm text-gray-300">University of Venda</p>
+    </div>
+    <nav class="mt-8 px-4">
+      <button onclick="showView('dashboard')" id="nav-dashboard" class="nav-btn">Dashboard</button>
+      <button onclick="showView('accommodations')" id="nav-accommodations" class="nav-btn">Accommodations</button>
+      <button onclick="showView('students')" id="nav-students" class="nav-btn">Students</button>
+      <button onclick="alert('Settings not implemented')" class="nav-btn">Settings</button>
+      <button onclick="logout()" class="nav-btn">Logout</button>
+    </nav>
+  </div>
+
+  <!-- Main -->
+  <div class="ml-64">
+    <div class="bg-white border-b p-5">
+      <div class="flex justify-between items-center">
+        <div>
+          <h1 id="header-title" class="text-2xl font-semibold">
+            Student Accommodation Applications
+          </h1>
+        </div>
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center univen-primary">
+            <i data-lucide="user" class="h-5 w-5 text-white"></i>
+          </div>
+          <span class="text-sm font-medium">Admin User</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg" style="display: none;">
+      <div class="flex items-center space-x-2">
+        <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+        <span>Refreshing data...</span>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard-view" class="p-5">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8" id="stats-cards"></div>
+
+      <div class="card p-5 mb-6">
+        <h3 class="text-lg font-semibold">Filter & Process Applications</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-3">
+          <div>
+            <label>Status</label>
+            <select id="status-filter" onchange="filterApplications()" class="input">
+              <option value="all">All Statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="Approved">Approved</option>
+              <option value="Accepted">Accepted</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+          <div>
+            <label>Selection Method</label>
+            <select id="allocation-method" class="input">
+              <option value="distance">Distance (Farthest First)</option>
+              <option value="gpa">GPA (Highest First)</option>
+              <option value="random">Random</option>
+            </select>
+          </div>
+          <div>
+            <label>Search</label>
+            <input id="search-term" class="input" oninput="filterApplications()" placeholder="Search by name or student number">
+          </div>
+          <div class="flex items-end">
+            <button class="btn-success w-full" onclick="processPending()">Process Pending Applications</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="thead">
+                <th>ID</th><th>Student</th><th>Residence</th><th>Room</th><th>Status</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="applications-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accommodations -->
+    <div id="accommodations-view" class="p-5 hidden">
+      <h2 class="text-xl font-semibold">Male Residences</h2>
+      <div class="card mt-3 mb-6">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="thead"><th>Residence</th><th>Block</th><th>Available Rooms</th><th>Restrictions</th></tr>
+            </thead>
+            <tbody id="male-residences-table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2 class="text-xl font-semibold">Female Residences</h2>
+      <div class="card mt-3">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="thead"><th>Residence</th><th>Block</th><th>Available Rooms</th><th>Restrictions</th></tr>
+            </thead>
+            <tbody id="female-residences-table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <h2 class="text-xl font-semibold mt-8">Off-Campus Residences</h2>
+      <div class="card mt-3">
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="thead"><th>Residence</th><th>Block</th><th>Accepted</th><th>Available Rooms</th><th>Restrictions</th><th>PDF</th></tr>
+            </thead>
+            <tbody id="offcamp-residences-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Students -->
+    <div id="students-view" class="p-5 hidden">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-2xl font-semibold">Student Information</h2>
+          <p class="text-sm">List of applicants</p>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn" onclick="showView('dashboard')">Back to Dashboard</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-4 mb-6" id="summary-stats"></div>
+
+      <div class="card p-5 mb-6">
+        <div class="flex gap-4">
+          <div class="flex-1 relative">
+            <input id="student-search" oninput="filterStudents()" class="input pl-10" placeholder="Search by name, student number">
+          </div>
+          <select id="student-status" class="input" onchange="filterStudents()">
+            <option value="all">All Students</option>
+          </select>
+          <select id="student-program" class="input" onchange="filterStudents()">
+            <option value="all">All Programs</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 class="text-lg font-semibold mb-4">Students (<span id="students-count">0</span>)</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <thead>
+              <tr class="thead">
+                <th>Student Details</th><th>Email</th><th>Phone</th><th>Gender</th><th>Registration Date</th>
+              </tr>
+            </thead>
+            <tbody id="students-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="student-modal">
+    <div class="modal-content">
+      <div id="modal-body"></div>
+      <div class="flex justify-end mt-4">
+        <button class="btn" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/Admin.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => { lucide.createIcons(); });
+  </script>
+</body>
+</html>

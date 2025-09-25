@@ -1,0 +1,659 @@
+/* Global styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 5%;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      width: 90%;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0; /* Prevent logo from shrinking */
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      margin-right: 12px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      object-fit: contain;
+    }
+
+    .logo h1 {
+      margin: 0;
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .logo p {
+      margin: 0;
+      font-size: 0.8em;
+      color: #666;
+    }
+
+    .login {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 30px;
+      white-space: nowrap;
+      margin-left: 15px;
+    }
+
+    /* Fair Allocation Section */
+    .fair-allocation {
+      display: flex;
+      justify-content: space-between;
+      padding: 100px 5% 40px;
+      background-color: #f0f8ff;
+      flex-wrap: wrap;
+    }
+
+    .fair-allocation .text {
+      flex: 1;
+      min-width: 280px;
+      margin-bottom: 20px;
+    }
+
+    .fair-allocation h2 {
+      font-size: 2.2em;
+    }
+
+    .fair-allocation h2 .black {
+      color: #000;
+    }
+
+    .fair-allocation h2 .blue {
+      color: #007bff;
+    }
+
+    .fair-allocation p {
+      color: #444;
+      font-size: 1em;
+    }
+
+    .access,
+    .learn {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-right: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .access {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .access:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .learn {
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
+
+    .learn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .fair-allocation img {
+      flex: 1;
+      max-width: 450px;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px 5%;
+      background-color: #f0f8ff;
+      text-align: center;
+    }
+
+    .stats div {
+      flex: 1 1 150px;
+      margin: 10px;
+    }
+
+    .stats h3 {
+      font-size: 1.8em;
+      margin: 0;
+    }
+
+    .stats p {
+      margin: 0;
+      color: #666;
+      font-weight: normal;
+    }
+
+    .online {
+      background-color: #d4f4e2;
+      color: #28a745;
+      padding: 5px 15px;
+      border-radius: 20px;
+      align-self: center;
+    }
+
+    /* Housing Crisis Section */
+    .housing-crisis {
+      padding: 40px 5%;
+      background-color: #fff0f5;
+      text-align: center;
+    }
+
+    .housing-crisis h2 {
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    .housing-crisis p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      flex: 1 1 250px;
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .icon {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 0.95em;
+    }
+
+    /* Making Better Section */
+    .making-better {
+      padding: 40px 5%;
+      background-color: #f8f9fa;
+      text-align: center;
+    }
+
+    .making-better h2 {
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    .making-better p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .making-better .cards .icon {
+      color: #007bff;
+    }
+
+    /* Special Protection Section */
+    .special-protection {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 5%;
+      background-color: #f0fff8;
+    }
+
+    .special-protection .text {
+      flex: 1;
+      min-width: 280px;
+      margin-bottom: 20px;
+    }
+
+    .badge {
+      background-color: #d4f4e2;
+      color: #28a745;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+    }
+
+    .special-protection h2 {
+      font-size: 1.8em;
+      font-weight: 600;
+    }
+
+    .special-protection ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .special-protection li {
+      color: #28a745;
+      font-weight: normal;
+      margin-bottom: 8px;
+    }
+
+    .special-protection img {
+      flex: 1;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* CTA Section */
+    .cta {
+      padding: 60px 5%;
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.2em;
+      font-weight: 600;
+    }
+
+    .cta p {
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .cta button {
+      background-color: #fff;
+      color: #007bff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta button:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    /* Footer Section */
+    .footer {
+      background-color: #1a1a1a;
+      color: #fff;
+      padding: 50px 5% 20px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 30px;
+    }
+
+    .footer-column h3 {
+      color: #007bff;
+      margin-bottom: 20px;
+      font-size: 1.2em;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-column ul li a:hover {
+      color: #007bff;
+    }
+
+    .footer-column i {
+      margin-right: 10px;
+      color: #007bff;
+      width: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      color: #fff;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .social-icons a:hover {
+      background-color: #007bff;
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      color: #999;
+    }
+
+    /* Responsive Design */
+    
+    /* Large Desktop */
+    @media (min-width: 1200px) {
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+    }
+    
+    /* Tablet */
+    @media (max-width: 1024px) {
+      .fair-allocation h2 {
+        font-size: 2rem;
+      }
+      
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .housing-crisis .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    /* Mobile Landscape */
+    @media (max-width: 768px) {
+      header {
+        width: 100%;
+        padding: 8px 4%;
+        flex-wrap: wrap;
+      }
+      
+      .logo h1 {
+        font-size: 1rem;
+      }
+      
+      .logo p {
+        font-size: 0.7rem;
+      }
+      
+      .logo img {
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+      }
+      
+      .login {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .fair-allocation {
+        flex-direction: column;
+        text-align: center;
+        padding: 80px 20px 40px;
+      }
+      
+      .fair-allocation h2 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+      }
+      
+      .fair-allocation img {
+        max-width: 100%;
+        margin-top: 20px;
+        height: auto;
+      }
+      
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 30px 20px;
+      }
+      
+      .stats div h3 {
+        font-size: 1.5rem;
+      }
+      
+      .stats div p {
+        font-size: 0.8rem;
+      }
+      
+      .housing-crisis, .making-better, .cta {
+        padding: 30px 20px;
+      }
+      
+      .housing-crisis h2, .making-better h2 {
+        font-size: 1.8rem;
+      }
+      
+      .housing-crisis .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .making-better .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .special-protection {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+      }
+      
+      .special-protection img {
+        max-width: 100%;
+        margin-top: 20px;
+        height: auto;
+      }
+      
+      .footer {
+        padding: 30px 20px 20px;
+        text-align: center;
+      }
+      
+      .footer .footer-content {
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .footer-column {
+        text-align: center;
+      }
+    }
+    
+    /* Mobile Portrait */
+    @media (max-width: 480px) {
+      header {
+        padding: 6px 3%;
+      }
+      
+      .logo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+      }
+      
+      .logo h1 {
+        font-size: 0.9rem;
+      }
+      
+      .logo p {
+        font-size: 0.65rem;
+      }
+      
+      .logo img {
+        width: 35px;
+        height: 35px;
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+      
+      .login {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        margin-left: 10px;
+      }
+      
+      .fair-allocation {
+        padding: 70px 15px 30px;
+      }
+      
+      .fair-allocation h2 {
+        font-size: 1.5rem;
+      }
+      
+      .fair-allocation p {
+        font-size: 0.9rem;
+      }
+      
+      .access, .learn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        margin: 5px;
+      }
+      
+      .stats {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 20px 15px;
+      }
+      
+      .stats div {
+        padding: 15px;
+      }
+      
+      .stats div h3 {
+        font-size: 1.3rem;
+      }
+      
+      .stats div p {
+        font-size: 0.75rem;
+      }
+      
+      .housing-crisis, .making-better, .cta {
+        padding: 20px 15px;
+      }
+      
+      .housing-crisis h2, .making-better h2 {
+        font-size: 1.5rem;
+      }
+      
+      .housing-crisis p, .making-better p {
+        font-size: 0.9rem;
+      }
+      
+      .card {
+        padding: 15px;
+      }
+      
+      .card h3 {
+        font-size: 1rem;
+      }
+      
+      .card p {
+        font-size: 0.85rem;
+      }
+      
+      .special-protection {
+        padding: 20px 15px;
+      }
+      
+      .special-protection h2 {
+        font-size: 1.5rem;
+      }
+      
+      .special-protection p {
+        font-size: 0.9rem;
+      }
+      
+      .cta h2 {
+        font-size: 1.5rem;
+      }
+      
+      .cta p {
+        font-size: 0.9rem;
+      }
+      
+      .cta button {
+        padding: 12px 24px;
+        font-size: 1rem;
+      }
+      
+      .footer {
+        padding: 20px 15px 15px;
+      }
+      
+      .footer h3 {
+        font-size: 1.1rem;
+      }
+      
+      .footer p, .footer li {
+        font-size: 0.85rem;
+      }
+    }

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Male Residences - University of Venda</title>
+  <link rel="icon" type="image/png" href="/Assets/univen_logo.png">
+  <link rel="shortcut icon" type="image/png" href="/Assets/univen_logo.png">
+  <link rel="stylesheet" href="../css/maleRes.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Updated Header Section -->
+  <div class="header-top">
+    <a href="/login" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <div class="logo">
+      <img src="../Assets/univen_logo.png" alt="University Logo">
+      <h1>Select Residence</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="instructions">
+      <h2><i class="fas fa-info-circle"></i> Application Instructions</h2>
+      <p>Choose a male residence to view available blocks</p>
+    </div>
+
+    <!-- Residences -->
+    <div class="card-container">
+      <!-- DBSA Male -->
+      <div class="residence-card">
+        <div class="card-header">
+          <img class="card-image" src="../Assets/female_dbsa_res.png" alt="DBSA Male Residence">
+          <div class="card-title"><h2>DBSA Male</h2></div>
+        </div>
+        <div class="card-body">
+          <div class="card-features">
+            <div class="card-feature"><i class="fas fa-users"></i><span>Mixed Years</span></div>
+            <div class="card-feature"><i class="fas fa-bed"></i><span>Single</span></div>
+          </div>
+          <select id="dbsa">
+            <option value="">-- Select Block --</option>
+            <option value="M1">M1 (First Years Only)</option>
+            <option value="M2">M2 (First Years Only)</option>
+            <option value="M3">M3 (First Years Only)</option>
+            <option value="M4">M4</option>
+            <option value="M5">M5</option>
+            <option value="M6">M6</option>
+            <option value="M7">M7</option>
+            <option value="M8">M8</option>
+          </select>
+          <button class="apply-btn" onclick="apply('DBSA Male', 'dbsa')">
+            <i class="fas fa-check-circle"></i> Select Residence
+          </button>
+        </div>
+      </div>
+
+      <!-- New Male -->
+      <div class="residence-card">
+        <div class="card-header">
+          <img class="card-image" src="../Assets/female_dbsa_res.png" alt="New Male Residence">
+          <div class="card-title"><h2>New Male</h2></div>
+        </div>
+        <div class="card-body">
+          <div class="card-features">
+            <div class="card-feature"><i class="fas fa-user-graduate"></i><span>Mixed Years</span></div>
+            <div class="card-feature"><i class="fas fa-bed"></i><span>Single Rooms</span></div>
+          </div>
+          <select id="newmale">
+            <option value="">-- Select Block --</option>
+            <option value="A-West">A-West</option>
+            <option value="B-West">B-West</option>
+            <option value="A-East">A-East</option>
+            <option value="B-East" disabled>B-East (Reserved for Nursing Students)</option>
+          </select>
+          <button class="apply-btn" onclick="apply('New Male', 'newmale')">
+            <i class="fas fa-check-circle"></i> Select Residence
+          </button>
+        </div>
+      </div>
+
+      <!-- Lost City Boys -->
+      <div class="residence-card">
+        <div class="card-header">
+          <img class="card-image" src="../Assets/female_dbsa_res.png" alt="Lost City Boys Residence">
+          <div class="card-title"><h2>Lost City Boys</h2></div>
+        </div>
+        <div class="card-body">
+          <div class="card-features">
+            <div class="card-feature"><i class="fas fa-users"></i><span>Mixed Years</span></div>
+            <div class="card-feature"><i class="fas fa-bed"></i><span>Single</span></div>
+          </div>
+          <select id="lostcity">
+            <option value="">-- Select Block --</option>
+            <option value="Block 1">Block 1</option>
+            <option value="Block 2">Block 2</option>
+          </select>
+          <button class="apply-btn" onclick="apply('Lost City Boys', 'lostcity')">
+            <i class="fas fa-check-circle"></i> Select Residence
+          </button>
+        </div>
+      </div>
+
+      <!-- F3 -->
+      <div class="residence-card">
+        <div class="card-header">
+          <img class="card-image" src="../Assets/female_dbsa_res.png" alt="F3 Residence">
+          <div class="card-title"><h2>F3</h2></div>
+        </div>
+        <div class="card-body">
+          <div class="card-features">
+            <div class="card-feature"><i class="fas fa-user-graduate"></i><span>Upper Years</span></div>
+            <div class="card-feature"><i class="fas fa-bed"></i><span>Single/Double Rooms</span></div>
+          </div>
+          <p style="margin-bottom: 15px; color: var(--gray);">No blocks available</p>
+          <button class="apply-btn" onclick="apply('F3', null)">
+            <i class="fas fa-check-circle"></i> Select Residence
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Applications Section -->
+    <div class="applications-container">
+      <div class="applications-header">
+        <h2><i class="fas fa-list-check"></i> Your Applications</h2>
+        <span id="applicationCount">0/2 Selected</span>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" id="progressBar">0%</div>
+      </div>
+
+      <ul class="applications-list" id="applications"></ul>
+
+      <div class="btn-center">
+        <button id="submitBtn" class="submit-btn" onclick="submitApplications()" disabled>
+          <i class="fas fa-paper-plane"></i> Submit Applications
+        </button>
+      </div>
+
+      <p class="note">You must select exactly 2 residences to submit your application.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>University of Venda &copy; 2025 | Residence Application System</p>
+  </footer>
+
+  <script src="../js/on_off compus.js"></script>
+</body>
+</html>

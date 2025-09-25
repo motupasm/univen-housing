@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Univen Housing Portal</title>
+  <link rel="icon" type="image/png" href="/Assets/univen_logo.png">
+  <link rel="shortcut icon" type="image/png" href="/Assets/univen_logo.png">
+  <!-- Use direct path since files are not in static folder -->
+  <link rel="stylesheet" href="../css/login.css">
+  <!-- Font Awesome (official CDN) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <!-- Back link -->
+  <div class="back-link">
+    <a href="{{ url_for('home') }}">← Back to Home</a>
+  </div>
+
+  <!-- Login container -->
+  <div class="container">
+    <div class="logo">
+      <!-- Use direct path for the image -->
+      <img src="../Assets/univen_logo.png" alt="Univen Logo">
+    </div>
+
+    <h2>Univen Housing Portal</h2>
+    <p class="subtitle">Secure access to housing allocation system</p>
+
+    <!-- Student/Admin toggle -->
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('student')">Student</div>
+      <div class="tab" onclick="switchTab('admin')">Admin</div>
+    </div>
+
+    <!-- Login form -->
+    <form id="loginForm">
+      <div class="form-group">
+        <label id="user-label">Student Number</label>
+        <input type="text" id="username" placeholder="e.g., 11234567" required>
+      </div>
+
+      <div class="form-group password-wrapper">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <span class="toggle-password" onclick="togglePassword()">
+          <i id="eyeIcon" class="fa-solid fa-eye" style="color: #0a0a0a;"></i>
+        </span>
+      </div>
+
+      <button type="submit" class="btn">Sign In</button>
+      <a href="/resetpassword.html" class="forgot">Forgot Password?</a>
+    </form>
+
+    <!-- Demo credentials -->
+    <div class="demo">
+      <p><strong>Demo credentials:</strong></p>
+      <p>Student: 23032739 / pass1</p>
+      <p>Student: 24064940 / pass2</p>
+      <p>Admin: admin@demo.com / admin123</p>
+    </div>
+  </div>
+
+  <!-- Use direct path for JS file -->
+  <script src="../js/login.js"></script>
+</body>
+</html>
