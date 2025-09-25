@@ -88,6 +88,7 @@ select {
   border: 1px solid var(--light-gray); border-radius: 5px;
   margin-bottom: 15px;
 }
+
 .apply-btn {
   width: 100%; padding: 12px;
   background: var(--secondary); color: white;

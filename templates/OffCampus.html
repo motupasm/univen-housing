@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,22 +10,24 @@
   <link rel="stylesheet" href="../css/OffCampus.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
   <!-- Header Section -->
   <div class="header-top">
-    <a href="/login" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+    <a href="/dashboard" class="back-btn"><i class="fas fa-arrow-left"></i></a>
     <div class="logo">
       <img src="./Assets/univen_logo.png" alt="University Logo">
       <h1>Select Residence</h1>
     </div>
-   </div>     
+    <div class=""></div>
+  </div>
 
-    <div class="container">
-     <div class="instructions">
+  <div class="container">
+    <div class="instructions">
       <h2><i class="fas fa-info-circle"></i> University of Venda - Off Campus Residence</h2>
       <p>Choose two residences</p>
-      <p id="genderInfo"></p> <!-- 👈 Gender will display here -->
-     </div>
+      <p id="genderInfo"></p> <!-- Gender will display here -->
+    </div>
 
     <!-- Residences -->
     <div class="card-container">
@@ -32,7 +35,9 @@
       <div class="residence-card">
         <div class="card-header">
           <img class="card-image" src="../Assets/Msherly.png" alt="M Sherly Sibasa">
-          <div class="card-title"><h2>M Sherly Sibasa</h2></div>
+          <div class="card-title">
+            <h2>M Sherly Sibasa</h2>
+          </div>
         </div>
         <div class="card-body">
           <div class="card-features">
@@ -46,10 +51,12 @@
       </div>
 
       <!-- Muthathe -->
-       <div class="residence-card">
+      <div class="residence-card">
         <div class="card-header">
           <img class="card-image" src="../Assets/Muthathe.png" alt="Muthathe">
-          <div class="card-title"><h2>Muthathe Residence</h2></div>
+          <div class="card-title">
+            <h2>Muthathe Residence</h2>
+          </div>
         </div>
         <div class="card-body">
           <div class="card-features">
@@ -66,41 +73,30 @@
       <div class="residence-card">
         <div class="card-header">
           <img class="card-image" src="../Assets/Simeka.png" alt="Simeka Heights">
-          <div class="card-title"><h2>Simeka Heights</h2></div>
-        </div>
-        <div class="card-body">
-          <div class="card-features">                     
-            <div class="card-feature"><i class="fas fa-users"></i><span>Mixed Years</span></div>
-            <div class="card-feature"><i class="fas fa-bed"></i><span>Single/Double Rooms</span></div>
+          <div class="card-title">
+            <h2>Simeka Heights</h2>
           </div>
-            <button class="apply-btn" onclick="apply('Simeka Heights')">
-            <i class="fas fa-check-circle"></i> Select Residence
-            </button>
-          </div>
-      </div>
-
-      <!-- Maphula -->
-      <div class="residence-card">
-        <div class="card-header">
-          <img class="card-image" src="../Assets/Maphula.png" alt="Maphula Residence">
-          <div class="card-title"><h2>Maphula Residence</h2></div>
         </div>
         <div class="card-body">
           <div class="card-features">
             <div class="card-feature"><i class="fas fa-users"></i><span>Mixed Years</span></div>
-            <div class="card-feature"><i class="fas fa-bed"></i><span>Single Rooms</span></div>
+            <div class="card-feature"><i class="fas fa-bed"></i><span>Single/Double Rooms</span></div>
           </div>
-          <button class="apply-btn" onclick="apply('Maphula Residence')">
+          <button class="apply-btn" onclick="apply('Simeka Heights')">
             <i class="fas fa-check-circle"></i> Select Residence
           </button>
         </div>
       </div>
 
+
+
       <!-- Emlanjeni Residence -->
       <div class="residence-card">
         <div class="card-header">
           <img class="card-image" src="../Assets/Emlanjeni.png" alt="Elamjeni Residence">
-          <div class="card-title"><h2>Emlanjeni Residence</h2></div>
+          <div class="card-title">
+            <h2>Emlanjeni Residence</h2>
+          </div>
         </div>
         <div class="card-body">
           <div class="card-features">
@@ -112,12 +108,33 @@
           </button>
         </div>
       </div>
-    
+
+      <!-- Maphula -->
+      <div class="residence-card">
+        <div class="card-header">
+          <img class="card-image" src="../Assets/Maphula.png" alt="Maphula Residence">
+          <div class="card-title">
+            <h2>Maphula Residence</h2>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-features">
+            <div class="card-feature"><i class="fas fa-users"></i><span>Mixed Years</span></div>
+            <div class="card-feature"><i class="fas fa-bed"></i><span>Single Rooms</span></div>
+          </div>
+          <button class="apply-btn" onclick="apply('Maphula Residence')">
+            <i class="fas fa-check-circle"></i> Select Residence
+          </button>
+        </div>
+      </div>
+      
       <!-- Grand Royale-->
       <div class="residence-card">
         <div class="card-header">
           <img class="card-image" src="../Assets/Royale.png" alt="Grand Royale">
-          <div class="card-title"><h2>Grand Royale</h2></div>
+          <div class="card-title">
+            <h2>Grand Royale</h2>
+          </div>
         </div>
         <div class="card-body">
           <div class="card-features">
@@ -134,7 +151,9 @@
       <div class="residence-card">
         <div class="card-header">
           <img class="card-image" src="../Assets/589.png" alt="589 Residence">
-          <div class="card-title"><h2>589 Residence</h2></div>
+          <div class="card-title">
+            <h2>589 Residence</h2>
+          </div>
         </div>
         <div class="card-body">
           <div class="card-features">
@@ -147,7 +166,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Applications Section -->
     <div class="applications-container">
       <div class="applications-header">
@@ -169,18 +188,18 @@
 
       <p class="note">You must select exactly 2 residences to submit your application.</p>
     </div>
-    </div>
+  </div>
 
   <footer>
     <p>University of Venda &copy; 2025 | Residence Application System</p>
   </footer>
 
   <script>
-    // 👇 Read gender from query parameter
+    // Read gender from query parameter
     const params = new URLSearchParams(window.location.search);
     const gender = params.get("gender");
     if (gender) {
-      document.getElementById("genderInfo").textContent = 
+      document.getElementById("genderInfo").textContent =
         `You are applying as: ${gender.charAt(0).toUpperCase() + gender.slice(1)}`;
     }
 
@@ -195,4 +214,5 @@
 
   <script src="../js/on_off compus.js"></script>
 </body>
+
 </html>

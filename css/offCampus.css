@@ -4,13 +4,13 @@
   --accent: #000000;
   --light: #f8f9fa;
   --dark: #343a40;
-  --success: #28a745;
-  --danger: #dc3545;
+  --success: green;
+  --danger: red;
   --warning: #ffc107;
   --gray: #6c757d;
   --light-gray: #e9ecef;
   --border-radius: 10px;
-  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,10 +23,16 @@ body {
 .container { max-width: 1200px; margin: auto; padding: 20px; }
 
 /*Header*/
-.header-top .back-btn { margin-right: 10px; font-size: 1.2rem; color: #333; }
+.header-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5rem;
+}
+.header-top .back-btn { margin-right: 10px; font-size: 1.8rem; color: #000000;}
 .header-top .logo { display: flex; align-items: center; gap: 10px; }
 .header-top .logo img { height: 40px; }
-.header-top h1 { font-size: 1.5rem; }
+.header-top h1 { font-size: 1.5rem; font-weight: 400;}
 
 /* INSTRUCTIONS */
 .instructions {
@@ -37,7 +43,7 @@ body {
   box-shadow: var(--box-shadow);
   border-left: 5px solid var(--secondary);
 }
-.instructions h2 { color: var(--primary); margin-bottom: 10px; }
+.instructions h2 { color: var(--primary); margin-bottom: 10px; font-weight: 400;}
 
 /*CARDS*/
 .card-container {
@@ -52,7 +58,6 @@ body {
   box-shadow: var(--box-shadow);
   transition: var(--transition);
 }
-.residence-card:hover { transform: translateY(-5px); }
 .card-header { position: relative; }
 .card-image { width: 100%; height: 180px; object-fit: cover; }
 .card-title {
@@ -66,11 +71,20 @@ body {
 .card-feature i { color: var(--accent); } 
 
 /*  BUTTONS */
-
+select {
+  width: 100%; padding: 12px;
+  border: 1px solid var(--light-gray); border-radius: 5px;
+  margin-bottom: 15px;
+}
 .apply-btn {
   width: 100%; padding: 12px;
   background: var(--secondary); color: white;
   border: none; border-radius: 5px; font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.apply-btn:hover {
+  background-color: rgb(28, 116, 233 , 0.8);
 }
 
 /* APPLICATIONS */
